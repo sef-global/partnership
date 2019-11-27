@@ -323,29 +323,6 @@
         dataType: 'json',
         success: function (data) {
 
-            //preprocess
-            function preProcessData(data) {
-
-                //get total engagement
-                let totalEngagement = 0;
-                let totalSocieties = 0;
-                data.societies.forEach(function (item) {
-                    totalEngagement += item.engagement;
-                    totalSocieties += 1;
-                });
-
-                data.totalSocieties = totalSocieties;
-
-
-                //append rank and percentage
-                data.societies.forEach(function (item) {
-                    item.rank = data.societies.indexOf(item) + 1;
-                    item.percentage = item.engagement * 100 / totalEngagement;
-                });
-
-                return data;
-            }
-
             let preProcessedData = preProcessData(data);
 
             let content = Mustache.render($("#templateUni").html(), {"universityData": preProcessedData});
@@ -354,7 +331,30 @@
             console.log(preProcessedData);
 
         }
-    })
+    });
+
+    //preprocess
+    function preProcessData(data) {
+
+        //get total engagement
+        let totalEngagement = 0;
+        let totalSocieties = 0;
+        data.societies.forEach(function (item) {
+            totalEngagement += item.engagement;
+            totalSocieties += 1;
+        });
+
+        data.totalSocieties = totalSocieties;
+
+
+        //append rank and percentage
+        data.societies.forEach(function (item) {
+            item.rank = data.societies.indexOf(item) + 1;
+            item.percentage = item.engagement * 100 / totalEngagement;
+        });
+
+        return data;
+    }
 </script>
 
 </body>
