@@ -5,11 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.sefglobal.partnership</groupId>
-    <artifactId>partnership</artifactId>
+    <artifactId>multiverse</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>partnership.redirector</module>
+        <module>org.sefglobal.multiverse.api</module>
+        <module>org.sefglobal.multiverse.redirector</module>
+        <module>org.sefglobal.multiverse.ui</module>
     </modules>
 
 </project>
