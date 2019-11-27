@@ -183,3 +183,9 @@ padding-bottom: 20px !important;
 .col-xs-offset-0 {
     margin-left: 0;
 }
+
+@media (min-width: 0px) {
+    .d-xs-none {
+        display: none;
+    }
+}
