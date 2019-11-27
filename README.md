@@ -46,6 +46,9 @@ https://docs.wso2.com/display/AM260/Installing+via+the+Installer
 ## Configuring the DB and API endpoints
 
 ### DB
+
+( Upgade to MySQL 8.0 if you are using lower versions )
+
 1. Create new mysql user for sef
     ```sql
     CREATE USER 'sef'@'localhost' IDENTIFIED BY 'sef123';
