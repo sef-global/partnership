@@ -329,13 +329,6 @@
 
     //preprocess
     function preProcessData(data) {
-
-        //get total engagement
-        let totalEngagement = 0;
-        data.forEach(function (item) {
-            totalEngagement += item.engagement;
-        });
-
         //append rank and percentage
         data.forEach(function (item) {
             item.rank = data.indexOf(item) + 1;

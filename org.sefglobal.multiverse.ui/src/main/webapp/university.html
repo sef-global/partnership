@@ -335,24 +335,12 @@
 
     //preprocess
     function preProcessData(data) {
-
-        //get total engagement
-        let totalEngagement = 0;
-        let totalSocieties = 0;
-        data.societies.forEach(function (item) {
-            totalEngagement += item.engagement;
-            totalSocieties += 1;
-        });
-
-        data.totalSocieties = totalSocieties;
-
-
         //append rank and percentage
         data.societies.forEach(function (item) {
             item.rank = data.societies.indexOf(item) + 1;
-            item.percentage = item.engagement * 100 / totalEngagement;
+            item.percentage = item.engagement * 100 / data.societies[0].engagement;
         });
-
+        data.totalSocieties = data.societies.length;
         return data;
     }
 </script>
