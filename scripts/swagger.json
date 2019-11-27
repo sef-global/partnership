@@ -1,0 +1,105 @@
+{
+  "swagger": "2.0",
+  "paths": {
+    "/universities": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "x-auth-type": "Application & Application User",
+        "x-throttling-tier": "Unlimited"
+      }
+    },
+    "/engagements": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "x-auth-type": "None",
+        "x-throttling-tier": "Unlimited"
+      },
+      "post": {
+        "parameters": [
+          {
+            "name": "Payload",
+            "description": "Request Body",
+            "required": false,
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "payload": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "x-auth-type": "Application & Application User",
+        "x-throttling-tier": "Unlimited"
+      }
+    },
+    "/engagements/university/{university-id}": {
+      "get": {
+        "parameters": [
+          {
+            "name": "university-id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "x-auth-type": "None",
+        "x-throttling-tier": "Unlimited"
+      }
+    },
+    "/events/{event-id}/links": {
+      "get": {
+        "parameters": [
+          {
+            "name": "event-id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "x-auth-type": "Application & Application User",
+        "x-throttling-tier": "Unlimited"
+      }
+    },
+    "/events": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "x-auth-type": "Application & Application User",
+        "x-throttling-tier": "Unlimited"
+      }
+    }
+  },
+  "info": {
+    "title": "Partnership",
+    "version": "v1"
+  }
+}
