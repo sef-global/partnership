@@ -54,7 +54,7 @@
                     <version>3.2.2</version>
                     <configuration>
                         <packagingExcludes>WEB-INF/lib/*cxf*.jar</packagingExcludes>
-                        <warName>multiverese</warName>
+                        <warName>multiverse</warName>
                     </configuration>
                 </plugin>
                 <plugin>

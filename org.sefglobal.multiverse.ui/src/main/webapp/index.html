@@ -193,14 +193,14 @@
             <div class="row row-grid align-items-center">
                 <div class="col-lg-5 col-md-12 order-lg-1">
                     <div class="px-3">
-                            <h1 class="display-1 pb-3" style="line-height: 1.2;">Multiverse Ranking</h1>
+                        <h1 class="display-1 pb-3" style="line-height: 1.2;">Multiverse Ranking</h1>
 
-                            <p class="pb-5">The dashboard displays your ranking based on successful web-based
-                                referrals engaged by your
-                                partner network in your university. The more you get your network to share SEF events
-                                using the
-                                custom generated links, the closer your get to reaching the number one spot in our
-                                Multiverse.</p>
+                        <p class="pb-5">The dashboard displays your ranking based on successful web-based
+                            referrals engaged by your
+                            partner network in your university. The more you get your network to share SEF events
+                            using the
+                            custom generated links, the closer your get to reaching the number one spot in our
+                            Multiverse.</p>
                     </div>
                 </div>
                 <div class="col-lg-7 col-md-12 col-sm-12 order-sm-2 ml-md-auto mt-5 d-sm-none d-md-none d-lg-block">
@@ -255,27 +255,28 @@
 <!--Mustache template for university content-->
 <script type="text/html" id="templateUni">
     {{#universities}}
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card shadow shadow-lg--hover">
-                <div class="card-body testimonial">
-                    <div class="row">
-                        <div class="col-sm-1">
-                            <div class="d-flex px-3 mt-3">
-                                <div class="text-center">
-                                    <span class="h6 text-success">{{rank}}</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-9">
-                            <div class="row text-left">
-                                <div class="col-sm-12">
-                                    <div class="d-flex">
-                                        <a href="university.html?id={{id}}" class="h6 text-success">{{name}}</a>
+    <a href="university.html?id={{id}}">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card shadow shadow-lg--hover">
+                    <div class="card-body testimonial">
+                        <div class="row">
+                            <div class="col-sm-1">
+                                <div class="d-flex px-3 mt-3">
+                                    <div class="text-center">
+                                        <span class="h6 text-success">{{rank}}</span>
                                     </div>
                                 </div>
-                                <div class="col-sm-12">
+                            </div>
+
+                            <div class="col-sm-9">
+                                <div class="row text-left">
+                                    <div class="col-sm-12">
+                                        <div class="d-flex">
+                                            <span class="h6 text-success">{{name}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
                                                     <span class="progress-wrapper">
                                                         <span class="progress">
                                                             <span class="progress-bar bg-default" role="progressbar"
@@ -284,23 +285,24 @@
                                                                   style="width: {{percentage}}%;"></span>
                                                         </span>
                                                     </span>
+                                    </div>
                                 </div>
-                            </div>
 
-                        </div>
-                        <div class="col-sm-2">
-                            <div class="d-flex px-3 mt-3">
-                                <div class="text-right">
-                                    <span class="h6 text-success" style="margin-bottom: 0;">{{engagement}}</span>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="d-flex px-3 mt-3">
+                                    <div class="text-right">
+                                        <span class="h6 text-success" style="margin-bottom: 0;">{{engagement}}</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+
                     </div>
-
                 </div>
             </div>
         </div>
-    </div>
+    </a>
     {{/universities}}
 </script>
 
@@ -312,23 +314,6 @@
         url: window.location.origin + '/invoker/open/api/partnership/v1/engagements',
         dataType: 'json',
         success: function (data) {
-            //preprocess
-            function preProcessData(data) {
-
-                //get total engagement
-                let totalEngagement = 0;
-                data.forEach(function (item) {
-                    totalEngagement += item.engagement;
-                });
-
-                //append rank and percentage
-                data.forEach(function (item) {
-                    item.rank = data.indexOf(item) + 1;
-                    item.percentage = item.engagement * 100 / totalEngagement;
-                });
-
-                return data;
-            }
 
             let preProcessedData = preProcessData(data);
 
@@ -340,7 +325,18 @@
         error: function (data) {
             console.log(data);
         }
-    })
+    });
+
+    //preprocess
+    function preProcessData(data) {
+        //append rank and percentage
+        data.forEach(function (item) {
+            item.rank = data.indexOf(item) + 1;
+            item.percentage = item.engagement * 100 / data[0].engagement;
+        });
+
+        return data;
+    }
 </script>
 
 </body>
