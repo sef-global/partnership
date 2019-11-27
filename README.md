@@ -65,7 +65,7 @@ https://docs.wso2.com/display/AM260/Installing+via+the+Installer
     (8080 is your tomacat port) hit next
 5. Set transports to HTTPS, Subscription Tiers to Unlimited
 6. Hit Save & Publish
-7. **Login** to API store and subscribe to the created api. https://localhost:9443/publisher
+7. **Login** to API store and subscribe to the created api. https://localhost:9443/store (you must login)
 
 
 ### How to use invoker to invoke APIs?
