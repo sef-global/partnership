@@ -16,8 +16,8 @@ Task list & Progress can be found here: [2]
 
 ## Setting up Dependencies
 1. Setup WSO2 API Manager 2.6.0  (not 3.0.0)
-https://docs.wso2.com/display/AM260/Installing+via+the+Installer
-Download from this link : https://wso2.com/api-management/previous-releases/ (Version: 2.6.0) 
+    https://docs.wso2.com/display/AM260/Installing+via+the+Installer
+    Download from this link : https://wso2.com/api-management/previous-releases/ (Version: 2.6.0) 
 2. Setup tomcat9 https://tomcat.apache.org/download-90.cgi
 3. Clone the sef common webapps repo 
 4. Create a new application in WSO2 APIM store and add the creadentials to the invoker.
