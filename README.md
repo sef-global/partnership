@@ -19,7 +19,7 @@ Task list & Progress can be found here: [2]
     https://docs.wso2.com/display/AM260/Installing+via+the+Installer
     Download from this link : https://wso2.com/api-management/previous-releases/ (Version: 2.6.0) 
 2. Setup tomcat9 https://tomcat.apache.org/download-90.cgi
-3. Clone the sef common webapps repo 
+3. Clone the sef common webapps repo https://github.com/sef-global/sef-webapps
 4. Create a new application in WSO2 APIM store and add the creadentials to the invoker.
     
     Go to WSO2 APIM Store: https://localhost:9443/publisher
