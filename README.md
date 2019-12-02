@@ -22,7 +22,7 @@ Task list & Progress can be found here: [2]
 3. Clone the sef common webapps repo https://github.com/sef-global/sef-webapps
 4. Create a new application in WSO2 APIM store and add the creadentials to the invoker.
     
-    Go to WSO2 APIM Store: https://localhost:9443/publisher
+    Go to WSO2 APIM Store: https://localhost:9443/store
     
     Go to Applications > Add new application > Pick a name > Click Add
     
